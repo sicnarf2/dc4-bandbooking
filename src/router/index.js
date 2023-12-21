@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ArtistView from '../views/ArtistView.vue'
-import AlbumView from '../views/AlbumView.vue'
-import TrackView from '../views/TrackView.vue'
+import Customer from '../views/Customer.vue'
+import Order from '../views/Order.vue'
+import Vehicle from '../views/Vehicle.vue'
 import ArtistCreateView from '../views/ArtistCreateView.vue'
 import AlbumCreateView from '../views/AlbumCreateView.vue'
 const router = createRouter({
@@ -14,34 +14,34 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/artist',
-      name: 'artist',
-      component: ArtistView
+      path: '/customer',
+      name: 'customer',
+      component: Customer
     },
 
     {
-      path: '/album',
-      name: 'album',
-      component: AlbumView
+      path: '/order',
+      name: 'order',
+      component: Order
     },
 
     {
-      path: '/track',
-      name: 'track',
-      component: TrackView
+      path: '/vehicle',
+      name: 'vehicle',
+      component: Vehicle
     },
 
-    {
-      path: '/artistcreate',
-      name: 'artistcreate',
-      component: ArtistCreateView
-    },
+    // {
+    //   path: '/artistcreate',
+    //   name: 'artistcreate',
+    //   component: ArtistCreateView
+    // },
 
-    {
-      path: '/albumcreate',
-      name: 'albumcreate',
-      component: AlbumCreateView
-    },
+    // {
+    //   path: '/albumcreate',
+    //   name: 'albumcreate',
+    //   component: AlbumCreateView
+    // },
 
 
 

@@ -1,70 +1,46 @@
 <template>
-  <div class="home-container">
-    <div class="bs">
-      <h1 class="h"> Hello!! Welcome To my Vue</h1>
-
+  <div class="container">
+    <div class="content">
+      <div class="message">
+        <div class="title">
+          <h2 class="title"> HELLO,</h2>&nbsp;&nbsp;<h3>OUR DEAR</h3>
+        </div>
+        <h1>CUSTOMER</h1>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  // Your component logic goes here
+
 }
 </script>
-
 <style>
+.content {
+  color: #4d4a4b;
+}
+.message {
+  padding-left: 5rem;
+}
 
-@keyframes rgbAnimation {
-    0% {
-      background-color: rgb(255, 0, 0); /* Red */
-    }
-    50% {
-      background-color: rgb(0, 255, 0); /* Green */
-    }
-    100% {
-      background-color: rgb(0, 0, 255); /* Blue */
-    }
-  }
-.home-container {
-  height: 70vh;
-  border: 1px solid;
-  width: 90vh;
-  margin: 3.5rem 16rem;
+.title {
   display: flex;
-  border-radius: 10px;
-  box-shadow: 7px 7px 15px;
-  background-color: rgb(161, 159, 159);
-}
-
-.bs{
-  margin-top: 143px;
-  margin-left: 85px;
-  height: 150px;
-  border: 1px solid;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px;
-  background-color: rgb(218, 217, 217);
-}
-.h{
-  text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 44px;
-  color: #12E193;
-  text-shadow: 2px 2px 5px black;
-}
-.h {
-    animation: fadeIn 2s ease-in-out infinite alternate;
+    margin-top: 2rem;
   }
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  h2 {
+    font-size: 4em;
   }
 
+  h3 {
+    font-size: 2.5em;
+    margin-top: 4.0rem;
+  }
+
+  h1 {
+    margin: 0;
+    padding-top: 0;
+    font-size: 6em;
+  }
 </style>
