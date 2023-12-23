@@ -3,31 +3,29 @@
       <div class="content">
         <div class="nav-content">
           <h1 class="cust">
-            CUSTOMER
-            <RouterLink to="/customercreate" class="plus">Add</RouterLink>
+           BAND
+            <RouterLink to="/bandcreate" class="plus">Add</RouterLink>
           </h1>
         </div>
-        <div class="table-customers">
+        <div class="table-bands">
           <table class="table table-bordered table-striped " >
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone Number</th>
+                <th>Band Name</th>
+                <th>Genre</th>
+                <th>Started since</th>
+                <th>Members</th>
                 <th>Modify</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="customer in customers" :key="customer.id">
-                <td>{{ customer.id }}</td>
-                <td>{{ customer.fullname }}</td>
-                <td>{{ customer.email }}</td>
-                <td>{{ customer.address }}</td>
-                <td>{{ customer.phoneNumber }}</td>
+              <tr v-for="band in bands" :key="band.id">
+                <td>{{ band.band_name }}</td>
+                <td>{{ band.genre }}</td>
+                <td>{{ band.year_started }}</td>
+                <td>{{ band.membersCount }}</td>
                 <td>
-                  <button @click="deleteCustomer(customer.id)" class="btn btn-danger">Delete</button>
+                  <button @click="deleteBand(band.id)" class="btn btn-danger">Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -94,34 +92,33 @@
     border-radius: 5px;
     padding: 5px 10px;
     border-style: none;
-    /* margin-left: 4vw; */
   }
   </style>
   <script setup>
   import { onMounted, ref } from 'vue';
   
-  const customers = ref([]);
+  const bands = ref([]);
   
   onMounted(() => {
-    fetch('http://localhost:8000/api/customers')
-      .then(response => response.json().then(data => (customers.value = data)));
+    fetch('http://localhost:8000/api/bands')
+      .then(response => response.json().then(data => (bands.value = data)));
   });
   
-  const deleteCustomer = async (customerId) => {
+  const deleteBand = async (bandId) => {
     try {
-        const response = await fetch('http://localhost:8000/api/customers/' + customerId, {
+        const response = await fetch('http://localhost:8000/api/bands/' + bandId, {
         method: 'DELETE',
     });
 
   
       if (response.ok) {
-        customers.value = customers.value.filter((customer) => customer.id !== customerId);
-        alert('Customer deleted successfully!');
+        bands.value = bands.value.filter((band) => band.id !== bandId);
+        alert('Band deleted successfully!');
       } else {
-        console.error('Failed to delete customer:', response.statusText);
+        console.error('Failed to delete band:', response.statusText);
       }
     } catch (error) {
-      console.error('Error deleting customer:', error);
+      console.error('Error deleting band:', error);
     }
   };
 </script>

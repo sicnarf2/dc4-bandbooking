@@ -7,14 +7,13 @@ import { RouterLink, RouterView } from 'vue-router'
   <div class="container">
     <div class="navbar-container">
       <div class="title">
-        <h1>Car Distributor</h1>   
+        <h1>BAND BOOKING</h1>   
       </div>
       <div class="navbar">
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/customer">Customer</RouterLink>    
-        <RouterLink to="/order">Order</RouterLink>  
-        <RouterLink to="/vehicle">Vehicle</RouterLink>  
-        <!-- <RouterLink to="/portfolio">Portfolio</RouterLink>   -->
+        <RouterLink to="/band">Band</RouterLink>    
+        <RouterLink to="/booking">Booking</RouterLink>  
+        <RouterLink to="/user">User</RouterLink>
       </div>
     </div>
     <div class="content">

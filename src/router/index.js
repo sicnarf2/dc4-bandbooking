@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Customer from '../views/Customer.vue'
-import Order from '../views/Order.vue'
-import Vehicle from '../views/Vehicle.vue'
+import Band from '../views/Band.vue'
+import User from '../views/User.vue'
+import Booking from '../views/Booking.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -12,45 +12,23 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/customer',
-      name: 'customer',
-      component: Customer
+      path: '/band',
+      name: 'band',
+      component: Band
     },
+
 
     {
-      path: '/order',
-      name: 'order',
-      component: Order
+      path: '/user',
+      name: 'user',
+      component: User
     },
-
+    
     {
-      path: '/vehicle',
-      name: 'vehicle',
-      component: Vehicle
-    },
-
-    // {
-    //   path: '/artistcreate',
-    //   name: 'artistcreate',
-    //   component: ArtistCreateView
-    // },
-
-    // {
-    //   path: '/albumcreate',
-    //   name: 'albumcreate',
-    //   component: AlbumCreateView
-    // },
-
-
-
-
-
-
-    // {
-    //   path: '/artiscreate',
-    //   name: 'artistcreate',
-    //   component: ArtistCreateView
-    // }
+      path: '/booking',
+      name: 'booking',
+      component: Booking
+    }
   ]
 })
 

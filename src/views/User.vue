@@ -3,35 +3,27 @@
       <div class="content">
         <div class="nav-content">
           <h1 class="cust">
-            Vehicle
-            <RouterLink to="/vehiclecreate" class="plus">Add</RouterLink>
+            USER
+            <RouterLink to="/usercreate" class="plus">Add</RouterLink>
           </h1>
         </div>
-        <div class="table-vehicles">
+        <div class="table-users">
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Make</th>
-                <th>Model</th>
-                <th>Year</th>
-                <th>Color Number</th>
-                <th>Transmission</th>
-                <th>Price</th>
+                <th>ID number</th>
+                <th>Name</th>
+                <th>Email</th>
                 <th>Modify</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="vehicle in vehicles" :key="vehicle.id">
-                <td>{{ vehicle . id }}</td>
-                <td>{{ vehicle . make }}</td>
-                <td>{{ vehicle . model }}</td>
-                <td>{{ vehicle . year }}</td>
-                <td>{{ vehicle . color }}</td>
-                <td>{{ vehicle . transmission }}</td>
-                <td>{{ vehicle . price}}</td>
+              <tr v-for="user in users" :key="user.id">
+                <td>{{ user . id}}</td>
+                <td>{{ user . name }}</td>
+                <td>{{ user . email }}</td>               
                 <td>
-                  <button @click="deleteVehicle(vehicle.id)" class="btn btn-danger">Delete</button>
+                  <button @click="deleteUser(user.id)" class="btn btn-danger">Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -105,28 +97,28 @@
 
   import { onMounted, ref } from 'vue';
 
-  const vehicles = ref([]);
+  const users = ref([]);
 
   onMounted(() => {
-    fetch('http://localhost:8000/api/vehicles')
-      .then(response => response.json().then(data => (vehicles.value = data)));
+    fetch('http://localhost:8000/api/users')
+      .then(response => response.json().then(data => (users.value = data)));
   });
 
-  const deleteVehicle = async (customerId) => {
+  const deleteUser = async (bandId) => {
     try {
-      const response = await fetch('http://localhost:8000/api/customers/' + customerId, {
+      const response = await fetch('http://localhost:8000/api/bands/' + bandId, {
         method: 'DELETE',
       });
 
 
       if (response.ok) {
-        customers.value = customers.value.filter((customer) => customer.id !== customerId);
-        alert('Customer deleted successfully!');
+        bands.value = bands.value.filter((band) => band.id !== bandId);
+        alert('Band deleted successfully!');
       } else {
-        console.error('Failed to delete customer:', response.statusText);
+        console.error('Failed to delete band:', response.statusText);
       }
     } catch (error) {
-      console.error('Error deleting customer:', error);
+      console.error('Error deleting band:', error);
     }
   };
 
